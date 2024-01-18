@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alphabet Selection</title>
+    
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            flex-direction: column;
+            padding: 2rem;
+            background-color: rgb(220, 219, 219);
+        }
+
+        .heading {
+            font-size: 4rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .content {
+            padding: 3rem;
+            background-color: white;
+            border-radius: 2rem;
+        }
+
+        .my-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 2.5rem;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            border: 2px solid black;
+            color: #3498db;
+            background-color: #fff;
+            border-radius: 5px;
+            transition: background-color .3s, color .3s;
+            margin: 10px;
+        }
+
+        .my-button:hover {
+            background-color: #3498db;
+            color: #fff;
+        }
+
+        form {
+            display: flex;
+            align-content: center;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            margin: 3rem;
+            flex-wrap: wrap;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="content">
+
+            <h1 class="heading">Select Alphabet</h1>
+            <form method="post" action="{{ url_for('subpage') }}">
+                {% for alphabet in labels_dict.values() %}
+                    <button class="my-button" type="submit" name="selected_alphabet" value="{{ alphabet }}">{{ alphabet }}</button>
+                {% endfor %}
+            </form>
+            
+        </div>
+    </div>
+
+</body>
+</html>
